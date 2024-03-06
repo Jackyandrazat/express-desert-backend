@@ -55,6 +55,22 @@ const updateDesert = async (req, res) => {
 
 }
 
+const deleteDesert = async (req, res) => {
+    const { id } = req.params;
+    try {
+        await desertModels.d(id);
+        res.json({
+            message: 'Delete Pokemon Success',
+            data: data
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Server Error',
+            error: error.message
+        });
+    }
+}
+
 module.exports = {
     getAllDeserts,
     createNewDesert,

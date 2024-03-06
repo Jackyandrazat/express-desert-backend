@@ -20,6 +20,13 @@ const updateDesert = async (body, id) => {
     return dbPool.execute(sqlQuery)
 }
 
+const deleteDesert = async (id) => {
+    const sqlQuery = `DELETE FROM deserts WHERE id = ${id}`
+    
+    return dbPool.execute(sqlQuery)
+}
+
+
 
 
 
@@ -27,5 +34,6 @@ const updateDesert = async (body, id) => {
 module.exports = {
     getAllDesert,
     createNewDesert,
-    updateDesert
+    updateDesert,
+    deleteDesert
 }
