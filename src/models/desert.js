@@ -4,13 +4,14 @@ const getAllDesert = async () => {
     const sqlQuery = 'SELECT * FROM deserts'
     return dbPool.execute(sqlQuery);
 }
-const createNewDesert = async (bodyPayload) => {
-    const sqlQuery = `INSERT INTO deserts (nama_desert, stock, harga) 
-                      VALUES (?, ?, ?)`;
-    const values = [bodyPayload.nama_desert, bodyPayload.stock, bodyPayload.harga];
+const createNewDesert = async (body) => {
+    const sqlQuery = `INSERT INTO deserts (nama, stock, harga) 
+                      VALUES (?,?,?)`;
+    const values = [body.nama,body.stock,body.harga];
     
-    return dbPool.execute(sqlQuery, values);
+    return dbPool.execute(sqlQuery,values);
 }
+
 
 
 

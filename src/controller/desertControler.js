@@ -16,14 +16,14 @@ const getAllDeserts =  async (req, res) =>{
     }
 }
 
-const createNewDeserts = async (req, res) => {
-    const bodyPayload = req.body;
+const createNewDesert = async (req, res) => {
+    const {body} = req;
     
     try {
-        await desertModels.createNewDesert(bodyPayload);
+        await desertModels.createNewDesert(body);
         res.status(201).json({
             message: 'Create New Desert Success',
-            data: bodyPayload
+            data: body
         });
     } catch (error) {
         res.status(500).json({
@@ -32,9 +32,8 @@ const createNewDeserts = async (req, res) => {
         });
     }
 }
-
 module.exports = {
     getAllDeserts,
-    createNewDeserts,
+    createNewDesert,
 
 };

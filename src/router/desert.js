@@ -8,8 +8,7 @@ const desertController = require('../controller/desertControler');
 const router = express.Router();
 
 //READ --> GET
-router.post('/', desertController.createNewDeserts)
-;
+router.post('/', desertController.createNewDesert);
 router.get('/', desertController.getAllDeserts);
 
 
