@@ -1,11 +1,20 @@
+require('dotenv').config()
+
+const PORT = process.env.PORT || 5000;
+
 const express = require('express')
+const DesertRoutes = require('./router/desert')
+
+
+
 const app = express()
-const port = 4000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.use('/deserts', DesertRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
