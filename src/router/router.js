@@ -1,6 +1,7 @@
 const express = require('express');
 const desertController = require('../controller/desertControler');
 const cofeeController = require('../controller/cofeeController');
+const transaksiController = require('../controller/transaksiControlelr');
 
 const router = express.Router();
 
@@ -13,6 +14,9 @@ router.get('/cofee/:id', cofeeController.getCofee);
 router.get('/cofee', cofeeController.getAllCofee);
 // router.get('/cofee/ice', cofeeController.getIceCofee);
 // router.delete('/:id', desertController.);
+
+//transaksi
+router.post('/transaksi', transaksiController.createNewTransaksi);
 
 
 
