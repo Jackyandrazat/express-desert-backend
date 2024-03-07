@@ -5,6 +5,9 @@ const getAllDesert = async () => {
     return dbPool.execute(sqlQuery);
 }
 const createNewDesert = async (body) => {
+    if (body.stock < 0 || body.harga < 0) {
+        throw new Error("Stock dan harga tidak boleh negatif.");
+    }
     const sqlQuery = `INSERT INTO deserts (nama, stock, harga) 
                       VALUES (?,?,?)`;
     const values = [body.nama,body.stock,body.harga];
@@ -13,6 +16,9 @@ const createNewDesert = async (body) => {
 }
 
 const updateDesert = async (body, id) => {
+    if (body.stock < 0 || body.harga < 0) {
+        throw new Error("Stock dan harga tidak boleh negatif.");
+    }
     const sqlQuery = `UPDATE deserts 
                         SET nama = '${body.nama}', stock = '${body.stock}', harga = '${body.harga}' 
                         WHERE id = ${id}`
